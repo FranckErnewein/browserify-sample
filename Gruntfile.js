@@ -11,9 +11,13 @@ module.exports = function( grunt ){
 		browserify: {
 			options: {
 				alias: [
-					'lodash-node/underscore:underscore'
+					'lodash-node/underscore:underscore',
+					'backbone:backbone'
 				],
-				external: [ 'lodash-node/underscore' ]
+				external: [ 
+					'lodash-node/underscore',
+					'backbone'
+				]
 			},
 			common: {
 				src: [ 'src/common.js' ],
