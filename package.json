@@ -1,0 +1,18 @@
+{
+  "name": "browserify-sample",
+  "version": "0.0.0",
+  "description": "browserify-sample =================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FranckErnewein/browserify-sample.git"
+  },
+  "author": "Franck Ernewein",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/FranckErnewein/browserify-sample/issues"
+  }
+}
