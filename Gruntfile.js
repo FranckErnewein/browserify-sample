@@ -8,6 +8,8 @@ module.exports = function( grunt ){
 	
 	grunt.config.init({
 		
+        clean: [ 'www/*.js' ],
+
 		browserify: {
 			options: {
 				alias: [
@@ -17,7 +19,8 @@ module.exports = function( grunt ){
 				external: [ 
 					'lodash-node/underscore',
 					'backbone'
-				]
+				],
+                debug: true
 			},
 			common: {
 				src: [ 'src/common.js' ],
@@ -36,18 +39,31 @@ module.exports = function( grunt ){
 			}
 		},
 
+        concat: {
+            main:{
+                src: [
+                    'www/*.js',
+                ],
+                dest: 'www/all.js'
+            }
+        },
+
 		watch: {
 			files: [ 'src/**/*.js' ],
-			tasks: [ 'browserify' ]
-		},
+			tasks: [ 'js' ]
+		}
 
 
 
 	});
 	
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-browserify');
 
-	grunt.registerTask('default', ['browserify'] );
+    grunt.registerTask('js', [ 'clean', 'browserify', 'concat' ] );
+
+	grunt.registerTask('default', [ 'js' ] );
 	
 };
